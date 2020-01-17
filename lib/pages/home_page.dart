@@ -1,3 +1,4 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -64,7 +65,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            SizedBox(height: 30,),
+            SizedBox(height: 20,),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Column(
@@ -103,26 +104,6 @@ class _HomePageState extends State<HomePage> {
                   // )
                   ),
 
-                  // SizedBox(height: 20,),
-                  // FadeAnimation(1, 
-                  //   Text("Best Hotels", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey[800], fontSize: 20),),
-                  //   ),
-                  // SizedBox(height: 20,),                
-                  // // FadeAnimation(1.4, 
-                  // Container(
-                  //   height: 200,
-                  //   child: ListView(
-                  //     scrollDirection: Axis.horizontal,
-                  //     children: <Widget>[
-                  //       makeItem(image: 'assets/images/united-states.jpg', title: 'Canada'),
-                  //       makeItem(image: 'assets/images/greece.jpg', title: 'Italy'),
-                  //       makeItem(image: 'assets/images/Italy.jpg', title: 'Greece'),
-                  //       makeItem(image: 'assets/images/canada.jpg', title: 'United States')
-                  //     ],
-                  //   ),
-                  // ),
-                  // // ),
-                  // SizedBox(height: 80,),
                 ],
               ),
             )
@@ -130,25 +111,24 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton.extended(
-        icon: const Icon(Icons.add), 
-        onPressed: () {
+      // floatingActionButton: FloatingActionButton.extended(
+      //   icon: const Icon(Icons.add), 
+      //   onPressed: () {
           
+      //   },
+      //   elevation: 4.0,
+      //   label: const Text('Novo evento'),
+      // ),
+      bottomNavigationBar: CurvedNavigationBar(
+        backgroundColor: Colors.blueAccent,
+        items: <Widget>[
+          Icon(Icons.list, size: 30,),
+          Icon(Icons.add, size: 30),
+          Icon(Icons.menu, size: 30),
+        ],
+        onTap: (index) {
+          //Handle button tap
         },
-        elevation: 4.0,
-        label: const Text('Novo evento'),
-      ),
-      bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
-        notchMargin: 4.0,
-        child: new Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            IconButton(icon: Icon(Icons.menu), onPressed: () {}, ),
-            IconButton(icon: Icon(Icons.info), onPressed: () {},),
-          ],
-        ),
       ),
     );
   }
