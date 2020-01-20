@@ -1,5 +1,6 @@
 
 import 'package:countdown_calendar/pages/events_page.dart';
+import 'package:countdown_calendar/pages/new_event_page.dart';
 import 'package:countdown_calendar/pages/settings_page.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
   @override
   void initState() {
     super.initState();
-    _tabController = new TabController(vsync: this, length: 2);
+    _tabController = new TabController(vsync: this, length: 3);
   }
 
   @override
@@ -50,13 +51,19 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
         controller: _tabController,
         children: <Widget>[
           eventsPage(),
-
           settingsPage(),
-
+          // newEventPage(context),
+          NewEventPage()
         ],
       ),
       floatingActionButton: new FloatingActionButton(
         // onPressed: () => _tabController.animateTo(2), // Go to add event page.
+        onPressed: (){
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => NewEventPage()),
+          );
+        },
         child: new Icon(Icons.add),
       ),
     );
