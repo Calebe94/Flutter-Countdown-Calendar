@@ -52,12 +52,10 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
         children: <Widget>[
           eventsPage(),
           settingsPage(),
-          // newEventPage(context),
           NewEventPage()
         ],
       ),
       floatingActionButton: new FloatingActionButton(
-        // onPressed: () => _tabController.animateTo(2), // Go to add event page.
         onPressed: (){
           Navigator.push(
             context,
