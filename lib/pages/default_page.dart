@@ -67,7 +67,7 @@ class _EventsPageState extends State<DefaultPage> {
                 children: <Widget>[
                   widget.widgetListName != null?FadeAnimation(1, widget.widgetListName): new Container(),
                   SizedBox(height: 20,),
-                  FadeAnimation(1.4,
+                  // FadeAnimation(1.4,
                     Container(
                       height: widget.containerHeight!=null?widget.containerHeight:200,
                       child: ListView(
@@ -75,7 +75,7 @@ class _EventsPageState extends State<DefaultPage> {
                         children: widget.widgetList
                       ),
                     )
-                  ),
+                  // ),
                 ],
               ),
             )

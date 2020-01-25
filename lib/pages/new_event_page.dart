@@ -45,6 +45,7 @@ class NewEventPage extends StatefulWidget {
   @override
   NewEventPageState  createState() => new NewEventPageState();
 }
+
 class NewEventPageState extends State<NewEventPage> {
   String _dateTimeString = 'Não configurado';
 
@@ -60,7 +61,7 @@ class NewEventPageState extends State<NewEventPage> {
       },
       child: DefaultPage(
         new Text("Novo Evento", textAlign: TextAlign.center, style: TextStyle(color: Colors.white, fontSize: 40, fontWeight: FontWeight.bold),),
-        'assets/images/background.jpg',
+        'assets/images/new_event.jpg',
         Axis.vertical,
         <Widget>[
           new Form(
@@ -113,7 +114,7 @@ class NewEventPageState extends State<NewEventPage> {
                                 // _showDialog(context);
                               }
                             },
-                            child: Text('Save')
+                            child: Text('Salvar')
                           )
                         )
                       )
