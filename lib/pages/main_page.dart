@@ -50,7 +50,7 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
         physics: NeverScrollableScrollPhysics(), // Disable the side scroll to change page.
         controller: _tabController,
         children: <Widget>[
-          eventsPage(),
+          eventsPage(context),
           settingsPage(),
           NewEventPage()
         ],
