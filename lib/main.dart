@@ -5,9 +5,6 @@ void main()
 {
   runApp(
     new MaterialApp(
-      // home: NewEventPage(),
-      // home: MainPage()
-      // home: HomePage(),
       home: MainPage(),
     )
   );

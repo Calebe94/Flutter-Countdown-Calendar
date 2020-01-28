@@ -1,7 +1,10 @@
+import 'package:countdown_calendar/controllers/Database.dart';
+import 'package:countdown_calendar/models/calendar_event_model.dart';
 import 'package:countdown_calendar/pages/default_page.dart';
 import 'package:flutter/material.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:intl/intl.dart';
+
 
 class BasicDateTimeField extends StatelessWidget {
   final format = DateFormat("yyyy-MM-dd HH:mm");
@@ -48,6 +51,8 @@ class NewEventPage extends StatefulWidget {
 
 class NewEventPageState extends State<NewEventPage> {
   String _dateTimeString = 'Não configurado';
+  DateTime _dateTime;
+  String _eventTitle;
 
   final _formKey = GlobalKey<FormState>();
   final format = DateFormat("yyyy-MM-dd");
@@ -75,14 +80,19 @@ class NewEventPageState extends State<NewEventPage> {
                     if (value.isEmpty) {
                       return 'Por favor, insira o nome do evento';
                     }
+                    _eventTitle = value;
                   },
-                  onSaved: (val) => () => print(val),
+                  onSaved: (val) => (){
+                    print(val);
+                    _eventTitle = val;
+                  } ,
                 ),
 
                 SizedBox(height: 30,),
 
                 BasicDateTimeField((date){
-                  print("E a data selecionada é $date");
+                  _dateTime = date;
+                  _dateTimeString = _dateTime.toString();
                 }),
 
                 Container(
@@ -105,13 +115,14 @@ class NewEventPageState extends State<NewEventPage> {
                         child: Container(
                           padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
                           child: RaisedButton(
-                            onPressed: () {
-                              print("Salva");
+                            onPressed: () async {
                               final form = _formKey.currentState;
                               if (form.validate() && _dateTimeString != 'Não configurado') {
                                 form.save();
-                                // _user.save();
-                                // _showDialog(context);
+                                print("Evento {$_eventTitle $_dateTime} salvo.");
+                                await addCalendarEvent(_eventTitle, _dateTime);
+
+                                Navigator.pop(context);
                               }
                             },
                             child: Text('Salvar')
@@ -130,5 +141,10 @@ class NewEventPageState extends State<NewEventPage> {
         300
       ),
     );
+  }
+
+  Future<void> addCalendarEvent(String titleName, DateTime dateTime) async
+  {
+    await DBProvider.db.newCalendarEvent(CalendarEvent(id: 0, titleName: titleName, dateTime: dateTime.toString()));
   }
 }
