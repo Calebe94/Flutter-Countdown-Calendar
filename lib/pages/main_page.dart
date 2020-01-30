@@ -3,7 +3,7 @@ import 'package:countdown_calendar/UI/event_card.dart';
 import 'package:countdown_calendar/controllers/Database.dart';
 import 'package:countdown_calendar/models/calendar_event_model.dart';
 import 'package:countdown_calendar/pages/default_page.dart';
-import 'package:countdown_calendar/pages/new_event_page.dart';
+import 'package:countdown_calendar/pages/event_record.dart';
 import 'package:countdown_calendar/pages/settings_page.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +14,7 @@ class MainPage extends StatefulWidget {
   _MainPageState createState() => new _MainPageState();
 }
 
-class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin {
+class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin, WidgetsBindingObserver{
 
   TabController _tabController;
   List<Widget> cards;
@@ -26,8 +26,22 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
     List<Widget> auxCards = List<Widget>();
     for(int index = 0; index < clientFuture.length; index++)
     {
-      print(clientFuture[index].titleName);
-      auxCards.add(eventCard(context, image: 'assets/images/event-icon.jpg', title: clientFuture[index].titleName));
+      print(clientFuture[index].titleName+" "+clientFuture[index].id.toString());
+      auxCards.add(
+        eventCard(
+          context, 
+          image: 'assets/images/event-icon.jpg', 
+          title: clientFuture[index].titleName, 
+          date_time: clientFuture[index].dateTime, 
+          id: clientFuture[index].id, 
+          onTapCallback: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => editEventPage(context, eventTitle: clientFuture[index].titleName, dateTime: DateTime.now(), id: clientFuture[index].id))).then((_)
+            {
+              this.cards = List<Widget>();
+              updateCards(context);
+            });
+          })
+        );
       auxCards.add(SizedBox(width: 10,));
     }
 
@@ -39,19 +53,30 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
   @override
   void initState() {
     super.initState();
-    this.cards = null;
+    WidgetsBinding.instance.addObserver(this);
     _tabController = new TabController(vsync: this, length: 3);
   }
 
   @override
   void dispose() {
     _tabController.dispose();
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
 
   @override
-  Widget build(BuildContext context) {
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if ( state == AppLifecycleState.detached)
+    {
+      this.cards = List<Widget>();
+      updateCards(context);
+    }
+  }
 
+  @override
+  Widget build(BuildContext context) {
+    print("Entrei na tela principal");
+    // this.cards = null;
     if(this.cards == null)
     {
       this.cards = List<Widget>();
@@ -90,7 +115,7 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
       ),
       floatingActionButton: new FloatingActionButton(
         onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> NewEventPage())).then((_){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> newEventPage())).then((_){
             // This method gets callback after the NewEventPage is popped from the stack or finished.
             this.cards = List<Widget>();
             updateCards(context);
