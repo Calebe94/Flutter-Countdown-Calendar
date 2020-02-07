@@ -106,10 +106,7 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
             this.cards,
             Text("Eventos cadastrados", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey[800], fontSize: 20),),
           ),
-          // settingsPage(),
-          // MyHomePage(),
-          // AboutPage(Text("Edimar Calebe Castanho"), "assets/images/about-me.jpg", Axis.horizontal,<Widget>[]),
-          auxAboutPage(),
+          AboutPage(),
           NewEventPage()
         ],
       ),
