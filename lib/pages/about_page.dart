@@ -3,15 +3,6 @@ import 'package:countdown_calendar/pages/default_page.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-_launchURL() async {
-  const url = 'https://calebe94.github.io';
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
-  }
-}
-
 Widget auxAboutPage()
 {
   return DefaultPage(
@@ -40,7 +31,7 @@ Widget auxAboutPage()
     Axis.vertical,
     <Widget>[
       InkWell(
-        onTap: () => print("EMAIL"),
+        onTap: () => launch("mailto:calebe94@disroot.org"),
         child: Card(
           child: ListTile(
             leading: Icon(Icons.mail, color: Colors.blue,),
@@ -70,7 +61,7 @@ Widget auxAboutPage()
         )
       ),
       InkWell(
-        onTap: () => print("LOCATION"),
+        onTap: () => launch('https://www.google.com.br/maps/place/Curitiba,+PR'),
         child: Card(
           child: ListTile(
             leading: Icon(Icons.location_city, color: Colors.blue,),
