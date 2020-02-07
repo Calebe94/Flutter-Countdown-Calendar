@@ -2,9 +2,9 @@
 import 'package:countdown_calendar/UI/event_card.dart';
 import 'package:countdown_calendar/controllers/Database.dart';
 import 'package:countdown_calendar/models/calendar_event_model.dart';
+import 'package:countdown_calendar/pages/about_page.dart';
 import 'package:countdown_calendar/pages/default_page.dart';
 import 'package:countdown_calendar/pages/event_record.dart';
-import 'package:countdown_calendar/pages/settings_page.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
@@ -26,7 +26,6 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
     List<Widget> auxCards = List<Widget>();
     for(int index = 0; index < clientFuture.length; index++)
     {
-      print(clientFuture[index].titleName+" "+clientFuture[index].id.toString());
       auxCards.add(
         eventCard(
           context, 
@@ -75,8 +74,6 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
 
   @override
   Widget build(BuildContext context) {
-    print("Entrei na tela principal");
-    // this.cards = null;
     if(this.cards == null)
     {
       this.cards = List<Widget>();
@@ -94,7 +91,7 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
         currentIndex: _index,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.list), title: Text("Eventos")),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), title: Text("Configurações")),
+          BottomNavigationBarItem(icon: Icon(Icons.info), title: Text("Sobre")),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -109,7 +106,10 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
             this.cards,
             Text("Eventos cadastrados", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey[800], fontSize: 20),),
           ),
-          settingsPage(),
+          // settingsPage(),
+          // MyHomePage(),
+          // AboutPage(Text("Edimar Calebe Castanho"), "assets/images/about-me.jpg", Axis.horizontal,<Widget>[]),
+          auxAboutPage(),
           NewEventPage()
         ],
       ),

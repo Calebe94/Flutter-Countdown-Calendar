@@ -4,7 +4,7 @@ import 'package:flutter/rendering.dart';
 
 class DefaultPage extends StatefulWidget {
   String image_path;
-  Text screenName;
+  Widget screenName;
   Text widgetListName;
   List<Widget> widgetList;
   Axis scrollOrientation;
