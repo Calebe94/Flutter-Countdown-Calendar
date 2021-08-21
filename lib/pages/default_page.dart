@@ -61,7 +61,7 @@ class _EventsPageState extends State<DefaultPage> {
             ),
             SizedBox(height: 20,),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
@@ -69,7 +69,7 @@ class _EventsPageState extends State<DefaultPage> {
                   SizedBox(height: 20,),
                   // FadeAnimation(1.4,
                     Container(
-                      height: widget.containerHeight!=null?widget.containerHeight:200,
+                      height: widget.containerHeight!=null?widget.containerHeight:600,
                       child: ListView(
                         scrollDirection: widget.scrollOrientation,
                         children: widget.widgetList

@@ -7,7 +7,7 @@ DefaultPage eventsPage(BuildContext context)
   return DefaultPage(
     Text("Quer contar os dias até um evento?", textAlign: TextAlign.center, style: TextStyle(color: Colors.white, fontSize: 40, fontWeight: FontWeight.bold),),
     'assets/images/background.jpg',
-    Axis.horizontal,
+    Axis.vertical,
     <Widget>[
       eventCard(context, image: 'assets/images/event-icon.jpg', title: 'Evento 1 mas é um nome meio longo')
     ],

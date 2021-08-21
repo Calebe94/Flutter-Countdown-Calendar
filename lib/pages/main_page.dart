@@ -41,7 +41,7 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
             });
           })
         );
-      auxCards.add(SizedBox(width: 10,));
+      auxCards.add(SizedBox(height: 10,));
     }
 
     setState(() {
@@ -102,7 +102,7 @@ class _MainPageState extends State<MainPage> with SingleTickerProviderStateMixin
           DefaultPage(
             Text("Quer contar os dias até um evento?", textAlign: TextAlign.center, style: TextStyle(color: Colors.white, fontSize: 40, fontWeight: FontWeight.bold),),
             'assets/images/background.jpg',
-            Axis.horizontal,
+            Axis.vertical,
             this.cards,
             Text("Eventos cadastrados", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey[800], fontSize: 20),),
           ),
