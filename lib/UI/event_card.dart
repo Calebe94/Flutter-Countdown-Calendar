@@ -8,7 +8,7 @@ Widget eventCard(BuildContext context, {image, title, date_time, id, onTapCallba
   String hoursUntil = dateUntil.inHours.toString();
 
   return AspectRatio(
-    aspectRatio: 1/1,
+    aspectRatio: 3,
     child: SizedBox(
       child: Ink(
         decoration: BoxDecoration(
@@ -24,11 +24,12 @@ Widget eventCard(BuildContext context, {image, title, date_time, id, onTapCallba
           ,
           splashColor: Colors.brown.withOpacity(0.5),
           child: Container(
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.all(5),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(5),
               gradient: LinearGradient(
                 begin: Alignment.bottomRight,
+
                 colors: [
                   Colors.black.withOpacity(.8),
                   Colors.black.withOpacity(.2),
@@ -41,11 +42,11 @@ Widget eventCard(BuildContext context, {image, title, date_time, id, onTapCallba
                   flex: 1,
                   child: Container(
                     alignment: Alignment.center,
-                    child: Text("$daysUntil dias e $hoursUntil horas até", style: TextStyle(color: Colors.white, fontSize: 15),),
+                    child: Text("$daysUntil dias até", style: TextStyle(color: Colors.white, fontSize: 15),),
                   ),
                 ),
                 Flexible(
-                  flex: 4,
+                  flex: 2,
                   child: Container(
                     alignment: Alignment.center,
                     child: Text(title, style: TextStyle(color: Colors.white, fontSize: 20),),

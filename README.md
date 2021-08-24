@@ -1,28 +1,62 @@
-# countdown_calendar
+# Countdown Calendar
 
-A new Flutter project.
+#### A countdown calendar app, with flutter.
 
-## Getting Started
+See the days tick down to your vacation, weding, or birthday party.
+Get notified every day how many days are left until the event. 
+And keep track of the events you have.
 
-This project is a starting point for a Flutter application.
+## Usage
 
-A few resources to get you started if this is your first Flutter project:
+<br />  
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+<img align="left" hspace=68 src="./screenshots/photo4972128307248212406.jpg" width="100"/>
+<h3>Main screen</h3>
+<p>In this screen you can check the events you have already registered.</p>
+<br/><br/><br/><br/><br/><br/>
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img align="left" hspace=68 src="./screenshots/photo4972128307248212403.jpg" width="100"/>
+<h3>New event</h3>
+<p>You can add new ones by clicking in the "+" button.</p>
+<br/><br/><br/><br/><br/><br/>
 
-## Design
+<img align="left" hspace=68 src="./screenshots/photo4972128307248212404.jpg" width="100"/>
+<h3>Edit events</h3>
+<p>You can also edit the existing events by clicking on the cards.</p>
+<br/><br/><br/><br/><br/><br/>
 
-The design was highly inspired by [Flutter-Travel-Application](https://github.com/afgprogrammer/Flutter-Travel-Application) from [afgprogrammer](https://github.com/afgprogrammer/Flutter-Travel-Application).
+<img align="left" hspace=68 src="./screenshots/photo4972128307248212356.jpg" width="100"/>
+<h3>About page</h3>
+<p>Check the developer contatct info.</p>
+<br/><br/><br/><br/><br/><br/>
 
-## Links úteis
+<br/>
 
-* [YouTube - How to dismiss the keyboard](https://www.youtube.com/watch?v=BbFRvvkc_uk)
-* [Medium - Flutter: A guide to the TextField](https://medium.com/flutter-community/flutter-a-guide-on-textfield-ab62ef2e7654)
-* [Medium - A Deep Dive Into Flutter TextField](https://medium.com/flutter-community/a-deep-dive-into-flutter-textfields-f0e676aaab7a)
-* [Medium - Flutter How-To: Using BottomAppBar widget](https://proandroiddev.com/flutter-how-to-using-bottomappbar-75d53426f5af)
-* [Medium - Getting to the Bottom of Navigation in Flutter](https://medium.com/flutter/getting-to-the-bottom-of-navigation-in-flutter-b3e440b9386)
+## Development Setup
+
+Clone the repository and run the following commands:
+
+```
+flutter pub get
+flutter run
+```
+
+## Inspiration
+
+The design of this app was inspired by [Flutter-Travel-Application](https://github.com/afgprogrammer/Flutter-Travel-Application) from [afgprogrammer](https://github.com/afgprogrammer/Flutter-Travel-Application) and [gskinner vignettes](https://github.com/gskinnerTeam/flutter_vignettes);
+
+## Developer
+
+| <img src="https://github.com/Calebe94.png?size=200" alt="Edimar Calebe Castanho"> |
+|:---------------------------------------------------------------------------------:|
+| [Edimar Calebe Castanho (Calebe94)](https://github.com/Calebe94)                  |
+
+# License
+
+All software is covered under [MIT License](https://opensource.org/licenses/MIT).
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
